@@ -1,7 +1,7 @@
 
 import React from "react";
 import { 
-  Settings, Award, ChevronRight, BarChart2, Activity, Battery, Watch  
+  Settings, Award, ChevronRight, BarChart2, Activity, Battery, Watch, Headphones
 } from "lucide-react";
 import BottomNavBar from "@/components/BottomNavBar";
 

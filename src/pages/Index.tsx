@@ -31,25 +31,25 @@ const Index = () => {
         <div className="mb-6">
           <FeatureCard 
             title="Today's move" 
-            bgColor="#FF6B35" 
+            bgColor="" 
             onClick={() => toggleSection("workout")} 
             active={activeSection === "workout"}
           />
           <FeatureCard 
             title="Good Food" 
-            bgColor="#FFD6C2" 
+            bgColor="" 
             onClick={() => toggleSection("nutrition")} 
             active={activeSection === "nutrition"}
           />
           <FeatureCard 
             title="Your Sound" 
-            bgColor="#FF5733" 
+            bgColor="" 
             onClick={() => toggleSection("sound")} 
             active={activeSection === "sound"}
           />
           <FeatureCard 
             title="Your schedule" 
-            bgColor="#FF5733" 
+            bgColor="" 
             onClick={() => toggleSection("schedule")} 
             active={activeSection === "schedule"}
           />

@@ -9,6 +9,9 @@ import Sound from "./pages/Sound";
 import Explore from "./pages/Explore";
 import Profile from "./pages/Profile";
 import NotFound from "./pages/NotFound";
+import Workout from "./components/Workout";
+import Nutrition from "./components/Nutrition";
+import Schedule from "./components/Schedule";
 
 const queryClient = new QueryClient();
 
@@ -23,6 +26,9 @@ const App = () => (
           <Route path="/sound" element={<Sound />} />
           <Route path="/explore" element={<Explore />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/workout" element={<Workout />} />
+          <Route path="/nutrition" element={<Nutrition />} />
+          <Route path="/schedule" element={<Schedule />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

@@ -2,7 +2,8 @@
 import React, { useState } from "react";
 import { Slider } from "@/components/ui/slider";
 import { Button } from "@/components/ui/button";
-import { Volume, Volume1, Volume2, VolumeX } from "lucide-react";
+import { Volume, Volume1, Volume2, VolumeX, Music, Heart, Users } from "lucide-react";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 
 const presets = [
   { name: "Bass Boost", id: "bass" },
@@ -12,9 +13,16 @@ const presets = [
   { name: "Podcast", id: "podcast" },
 ];
 
+const soundModes = [
+  { name: "Soothing environment sound", id: "environment", icon: <Music className="h-4 w-4" /> },
+  { name: "Heartbeat sound", id: "heartbeat", icon: <Heart className="h-4 w-4" /> },
+  { name: "Cheering sounds", id: "cheering", icon: <Users className="h-4 w-4" /> },
+];
+
 const SoundControl = () => {
   const [volume, setVolume] = useState(75);
   const [activePreset, setActivePreset] = useState("balanced");
+  const [activeSoundMode, setActiveSoundMode] = useState("");
   const [equalizer, setEqualizer] = useState({
     bass: 50,
     mid: 50,
@@ -58,6 +66,29 @@ const SoundControl = () => {
             />
           </div>
         </div>
+      </div>
+
+      <div className="mb-8">
+        <h3 className="text-white text-lg font-semibold mb-4">Sound Modes</h3>
+        <RadioGroup 
+          value={activeSoundMode}
+          onValueChange={setActiveSoundMode}
+          className="space-y-2"
+        >
+          {soundModes.map((mode) => (
+            <div key={mode.id} className="flex items-center space-x-2 bg-black/20 p-3 rounded-lg">
+              <RadioGroupItem value={mode.id} id={mode.id} className="border-app-orange text-app-orange" />
+              <div className="flex items-center flex-1">
+                <label htmlFor={mode.id} className="flex items-center gap-2 text-white cursor-pointer">
+                  <div className="bg-app-orange/20 rounded-full h-8 w-8 flex items-center justify-center text-app-orange">
+                    {mode.icon}
+                  </div>
+                  <span>{mode.name}</span>
+                </label>
+              </div>
+            </div>
+          ))}
+        </RadioGroup>
       </div>
 
       <div className="mb-8">

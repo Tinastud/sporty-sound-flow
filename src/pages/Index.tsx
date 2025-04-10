@@ -1,5 +1,6 @@
 
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import BottomNavBar from "@/components/BottomNavBar";
 import FeatureCard from "@/components/FeatureCard";
 import Workout from "@/components/Workout";
@@ -11,9 +12,14 @@ type ActiveSection = "workout" | "nutrition" | "sound" | "schedule" | null;
 
 const Index = () => {
   const [activeSection, setActiveSection] = useState<ActiveSection>(null);
+  const navigate = useNavigate();
 
   const toggleSection = (section: ActiveSection) => {
-    setActiveSection(activeSection === section ? null : section);
+    if (section === "sound") {
+      navigate("/sound");
+    } else {
+      setActiveSection(activeSection === section ? null : section);
+    }
   };
 
   return (
@@ -59,12 +65,6 @@ const Index = () => {
         {activeSection === "nutrition" && (
           <div className="mt-4 bg-black/30 rounded-3xl p-5">
             <Nutrition />
-          </div>
-        )}
-
-        {activeSection === "sound" && (
-          <div className="mt-4 bg-black/30 rounded-3xl p-5">
-            <SoundControl />
           </div>
         )}
 

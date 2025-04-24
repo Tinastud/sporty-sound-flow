@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -9,9 +8,9 @@ import Sound from "./pages/Sound";
 import Explore from "./pages/Explore";
 import Profile from "./pages/Profile";
 import NotFound from "./pages/NotFound";
-import Workout from "./components/Workout";
-import Nutrition from "./components/Nutrition";
-import Schedule from "./components/Schedule";
+import Workout from "./pages/Workout";
+import Nutrition from "./pages/Nutrition";
+import Schedule from "./pages/Schedule";
 
 const queryClient = new QueryClient();
 

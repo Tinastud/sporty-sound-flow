@@ -1,19 +1,40 @@
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Slider } from "@/components/ui/slider";
 import { Button } from "@/components/ui/button";
 import { Volume, Volume1, Volume2, VolumeX, Music, Heart, Users } from "lucide-react";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 
 const presets = [
-  { name: "Bass Boost", id: "bass" },
-  { name: "Vocal", id: "vocal" },
-  { name: "Treble Boost", id: "treble" },
-  { name: "Balanced", id: "balanced" },
-  { name: "Podcast", id: "podcast" },
+  { 
+    name: "Bass Boost", 
+    id: "bass",
+    equalizer: { bass: 85, mid: 50, treble: 40 }
+  },
+  { 
+    name: "Vocal", 
+    id: "vocal",
+    equalizer: { bass: 40, mid: 85, treble: 60 }
+  },
+  { 
+    name: "Treble Boost", 
+    id: "treble",
+    equalizer: { bass: 30, mid: 55, treble: 90 }
+  },
+  { 
+    name: "Balanced", 
+    id: "balanced",
+    equalizer: { bass: 50, mid: 50, treble: 50 }
+  },
+  { 
+    name: "Podcast", 
+    id: "podcast",
+    equalizer: { bass: 45, mid: 75, treble: 65 }
+  },
 ];
 
 const soundModes = [
+  { name: "Default Mode", id: "default", icon: <Volume className="h-4 w-4" /> },
   { name: "Soothing environment sound", id: "environment", icon: <Music className="h-4 w-4" /> },
   { name: "Heartbeat sound", id: "heartbeat", icon: <Heart className="h-4 w-4" /> },
   { name: "Cheering sounds", id: "cheering", icon: <Users className="h-4 w-4" /> },
@@ -22,12 +43,20 @@ const soundModes = [
 const SoundControl = () => {
   const [volume, setVolume] = useState(75);
   const [activePreset, setActivePreset] = useState("balanced");
-  const [activeSoundMode, setActiveSoundMode] = useState("");
+  const [activeSoundMode, setActiveSoundMode] = useState("default");
   const [equalizer, setEqualizer] = useState({
     bass: 50,
     mid: 50,
     treble: 50,
   });
+
+  useEffect(() => {
+    // When a preset is selected, update the equalizer values
+    const selectedPreset = presets.find(preset => preset.id === activePreset);
+    if (selectedPreset) {
+      setEqualizer(selectedPreset.equalizer);
+    }
+  }, [activePreset]);
 
   const handleVolumeChange = (value: number[]) => {
     setVolume(value[0]);
@@ -35,6 +64,8 @@ const SoundControl = () => {
 
   const handleEqualizerChange = (type: "bass" | "mid" | "treble", value: number[]) => {
     setEqualizer({ ...equalizer, [type]: value[0] });
+    // When manually adjusting equalizer, deselect any preset
+    setActivePreset("");
   };
 
   const VolumeIcon = () => {

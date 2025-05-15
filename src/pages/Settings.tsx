@@ -1,11 +1,11 @@
 
 import React, { useState } from "react";
-import { Settings, Lock, Bell, Moon, User, Shield, QuestionCircle, ChevronRight, ToggleRight } from "lucide-react";
+import { Settings as SettingsIcon, Lock, Bell, Moon, User, Shield, HelpCircle, ChevronRight, ToggleRight } from "lucide-react";
 import BottomNavBar from "@/components/BottomNavBar";
 import { Switch } from "@/components/ui/switch";
-import { toast } from "@/hooks/use-toast";
+import { toast } from "@/components/ui/use-toast";
 
-const Settings = () => {
+const SettingsPage = () => {
   const [darkMode, setDarkMode] = useState(false);
   const [notifications, setNotifications] = useState(true);
   
@@ -30,7 +30,7 @@ const Settings = () => {
       <div className="pt-12 px-5">
         <div className="flex justify-between items-center mb-6">
           <h1 className="text-2xl font-bold text-white">Settings</h1>
-          <Settings className="text-white" size={20} />
+          <SettingsIcon className="text-white" size={20} />
         </div>
         
         <div className="space-y-6">
@@ -92,7 +92,7 @@ const Settings = () => {
             <div className="space-y-3">
               <div className="flex items-center justify-between bg-white/5 rounded-xl p-4">
                 <div className="flex items-center">
-                  <QuestionCircle className="text-app-orange mr-3" size={20} />
+                  <HelpCircle className="text-app-orange mr-3" size={20} />
                   <span className="text-white">Help Center</span>
                 </div>
                 <ChevronRight className="text-white/40" size={20} />
@@ -128,4 +128,4 @@ const Settings = () => {
   );
 };
 
-export default Settings;
+export default SettingsPage;

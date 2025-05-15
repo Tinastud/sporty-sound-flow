@@ -1,9 +1,9 @@
-
 import React from "react";
 import { 
   Settings, Award, ChevronRight, BarChart2, Activity, Battery, Watch, Headphones
 } from "lucide-react";
 import BottomNavBar from "@/components/BottomNavBar";
+import { Link } from "react-router-dom";
 
 const Profile = () => {
   return (
@@ -11,7 +11,9 @@ const Profile = () => {
       <div className="pt-12 px-5">
         <div className="flex justify-between items-center mb-6">
           <h1 className="text-2xl font-bold text-white">Profile</h1>
-          <Settings className="text-white" size={20} />
+          <Link to="/settings">
+            <Settings className="text-white cursor-pointer" size={20} />
+          </Link>
         </div>
 
         <div className="bg-white/5 rounded-2xl p-5 flex items-center mb-6">

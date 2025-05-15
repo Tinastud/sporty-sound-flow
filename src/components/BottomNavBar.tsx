@@ -1,6 +1,6 @@
 
 import React from "react";
-import { Grid, Globe, Plus, Headphones, User, Calendar, MessageSquare, List } from "lucide-react";
+import { Grid, Globe, Plus, Minus, Headphones, User, Calendar, MessageSquare, List } from "lucide-react";
 import { Link } from "react-router-dom";
 import {
   DropdownMenu,
@@ -10,6 +10,8 @@ import {
 } from "@/components/ui/dropdown-menu";
 
 const BottomNavBar = () => {
+  const [isOpen, setIsOpen] = React.useState(false);
+
   return (
     <div className="fixed bottom-0 left-0 right-0 bg-gradient-to-t from-app-background to-transparent pt-4">
       <div className="flex items-center justify-around px-4 pb-6 relative">
@@ -20,12 +22,12 @@ const BottomNavBar = () => {
           <Globe size={24} />
         </Link>
         
-        {/* Centered Plus Button with Dropdown */}
+        {/* Centered Plus/Minus Button with Dropdown */}
         <div className="absolute left-1/2 transform -translate-x-1/2 -mt-10">
-          <DropdownMenu>
+          <DropdownMenu onOpenChange={setIsOpen}>
             <DropdownMenuTrigger asChild>
               <div className="h-14 w-14 rounded-full bg-gradient-to-r from-app-orange to-app-light-orange flex items-center justify-center cursor-pointer shadow-lg">
-                <Plus size={26} className="text-white" />
+                {isOpen ? <Minus size={26} className="text-white" /> : <Plus size={26} className="text-white" />}
               </div>
             </DropdownMenuTrigger>
             <DropdownMenuContent 

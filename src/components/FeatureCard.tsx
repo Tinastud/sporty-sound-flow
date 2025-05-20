@@ -29,7 +29,7 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
   return (
     <div 
       className={cn(
-        "w-full rounded-3xl px-6 py-5 mb-4 cursor-pointer transition-all duration-200 bg-gradient-to-r from-app-orange to-app-light-orange",
+        "w-full rounded-3xl px-6 py-5 mb-4 cursor-pointer transition-all duration-300 bg-gradient-to-r from-app-orange to-app-light-orange hover:from-app-dark-orange hover:to-app-orange",
         active ? "scale-[1.02] shadow-lg" : "hover:scale-[1.01]"
       )}
       onClick={handleClick}

@@ -50,15 +50,17 @@ const Profile = () => {
         </div>
 
         <div className="space-y-4 mb-6">
-          <div className="flex items-center justify-between bg-white/5 rounded-xl p-4">
-            <div className="flex items-center">
-              <div className="bg-app-orange/20 rounded-full h-10 w-10 flex items-center justify-center mr-3">
-                <BarChart2 className="text-app-orange" size={20} />
+          <Link to="/progress" className="block">
+            <div className="flex items-center justify-between bg-white/5 rounded-xl p-4">
+              <div className="flex items-center">
+                <div className="bg-app-orange/20 rounded-full h-10 w-10 flex items-center justify-center mr-3">
+                  <BarChart2 className="text-app-orange" size={20} />
+                </div>
+                <span className="text-white">Your Progress</span>
               </div>
-              <span className="text-white">Your Progress</span>
+              <ChevronRight className="text-white/40" size={20} />
             </div>
-            <ChevronRight className="text-white/40" size={20} />
-          </div>
+          </Link>
           
           <div className="flex items-center justify-between bg-white/5 rounded-xl p-4">
             <div className="flex items-center">

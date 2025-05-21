@@ -1,6 +1,10 @@
 
-import React from "react";
-import { Calendar, Clock } from "lucide-react";
+import React, { useState } from "react";
+import { Calendar as CalendarIcon, Clock } from "lucide-react";
+import { Calendar } from "@/components/ui/calendar";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import { Button } from "@/components/ui/button";
+import { format } from "date-fns";
 
 interface WorkoutEvent {
   time: string;
@@ -27,20 +31,35 @@ const todaysWorkouts: WorkoutEvent[] = [
 ];
 
 const Schedule = () => {
-  const today = new Date();
-  const formattedDate = today.toLocaleDateString('en-US', { 
-    weekday: 'long', 
-    month: 'long', 
-    day: 'numeric' 
-  });
+  const [date, setDate] = useState<Date>(new Date());
+  const formattedDate = format(date, "EEEE, MMMM d");
 
   return (
     <div className="w-full px-2">
       <div className="flex items-center justify-between mb-5">
         <div className="flex items-center">
-          <Calendar className="mr-2 text-app-orange" size={20} />
+          <CalendarIcon className="mr-2 text-app-orange" size={20} />
           <h3 className="text-white/90 text-base">{formattedDate}</h3>
         </div>
+        <Popover>
+          <PopoverTrigger asChild>
+            <Button 
+              size="sm"
+              variant="outline" 
+              className="bg-white/5 text-white border-white/10 hover:bg-white/10 hover:text-white"
+            >
+              <CalendarIcon className="h-4 w-4" />
+            </Button>
+          </PopoverTrigger>
+          <PopoverContent className="w-auto p-0 bg-white/10 border-white/10">
+            <Calendar
+              mode="single"
+              selected={date}
+              onSelect={(newDate) => newDate && setDate(newDate)}
+              className="bg-app-background text-white pointer-events-auto"
+            />
+          </PopoverContent>
+        </Popover>
       </div>
 
       <div className="space-y-4">

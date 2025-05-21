@@ -1,3 +1,4 @@
+
 import React from "react";
 import { 
   Settings, Award, ChevronRight, BarChart2, Activity, Battery, Watch, Headphones
@@ -12,7 +13,7 @@ const Profile = () => {
         <div className="flex justify-between items-center mb-6">
           <h1 className="text-2xl font-bold text-white">Profile</h1>
           <Link to="/settings">
-            <Settings className="text-white cursor-pointer" size={20} />
+            <Settings className="text-white hover:rotate-90 transition-transform duration-300 cursor-pointer" size={20} />
           </Link>
         </div>
 

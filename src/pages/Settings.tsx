@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { Settings as SettingsIcon, Lock, Bell, Moon, User, Shield, HelpCircle, ChevronRight, ToggleRight } from "lucide-react";
 import BottomNavBar from "@/components/BottomNavBar";
 import { Switch } from "@/components/ui/switch";
-import { toast } from "@/components/ui/use-toast";
+import { toast } from "@/hooks/use-toast";
 
 const SettingsPage = () => {
   const [darkMode, setDarkMode] = useState(false);
@@ -30,7 +30,7 @@ const SettingsPage = () => {
       <div className="pt-12 px-5">
         <div className="flex justify-between items-center mb-6">
           <h1 className="text-2xl font-bold text-white">Settings</h1>
-          <SettingsIcon className="text-white" size={20} />
+          <SettingsIcon className="text-white hover:rotate-90 transition-transform duration-300 cursor-pointer" size={20} />
         </div>
         
         <div className="space-y-6">

@@ -57,7 +57,7 @@ const ProgressPage = () => {
         </div>
 
         {/* Activity Overview */}
-        <div className="mb-6">
+        <div className="mb-10"> {/* Increased bottom margin from mb-6 to mb-10 */}
           <Card className="bg-white/5 border-white/10 text-white">
             <CardHeader className="pb-2">
               <CardTitle className="text-lg flex items-center">
@@ -66,7 +66,7 @@ const ProgressPage = () => {
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="h-64">
+              <div className="h-60"> {/* Reduced height from h-64 to h-60 */}
                 <ChartContainer 
                   config={{
                     workouts: { 
@@ -118,8 +118,8 @@ const ProgressPage = () => {
         </div>
 
         {/* Monthly Goals */}
-        <div className="mb-6">
-          <h2 className="text-white text-lg font-semibold mb-3 flex items-center">
+        <div className="mb-8"> {/* Increased bottom margin from mb-6 to mb-8 */}
+          <h2 className="text-white text-lg font-semibold mb-4 flex items-center"> {/* Increased bottom margin from mb-3 to mb-4 */}
             <BarChart2 className="mr-2 text-app-orange" size={20} />
             Monthly Goals
           </h2>
@@ -142,7 +142,7 @@ const ProgressPage = () => {
 
         {/* Achievements */}
         <div className="mb-6">
-          <h2 className="text-white text-lg font-semibold mb-3 flex items-center">
+          <h2 className="text-white text-lg font-semibold mb-4 flex items-center"> {/* Increased bottom margin from mb-3 to mb-4 */}
             <TrendingUp className="mr-2 text-app-orange" size={20} />
             Achievements
           </h2>

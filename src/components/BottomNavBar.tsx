@@ -1,7 +1,7 @@
 
 import React from "react";
 import { Grid, Globe, Plus, Minus, Headphones, User, Calendar, MessageSquare, List } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -11,6 +11,12 @@ import {
 
 const BottomNavBar = () => {
   const [isOpen, setIsOpen] = React.useState(false);
+  const navigate = useNavigate();
+
+  const handleScheduleMeeting = () => {
+    setIsOpen(false);
+    navigate("/schedule");
+  };
 
   return (
     <div className="fixed bottom-0 left-0 right-0 bg-gradient-to-t from-app-background to-transparent pt-4">
@@ -35,7 +41,10 @@ const BottomNavBar = () => {
               sideOffset={5}
               align="center"
             >
-              <DropdownMenuItem className="hover:bg-white/10 cursor-pointer gap-2">
+              <DropdownMenuItem 
+                className="hover:bg-white/10 cursor-pointer gap-2"
+                onClick={handleScheduleMeeting}
+              >
                 <Calendar size={18} />
                 <span>Schedule a meeting</span>
               </DropdownMenuItem>

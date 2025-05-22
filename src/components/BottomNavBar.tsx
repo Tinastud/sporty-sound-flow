@@ -17,6 +17,11 @@ const BottomNavBar = () => {
     setIsOpen(false);
     navigate("/schedule");
   };
+  
+  const handleAddRoutine = () => {
+    setIsOpen(false);
+    navigate("/routines");
+  };
 
   return (
     <div className="fixed bottom-0 left-0 right-0 bg-gradient-to-t from-app-background to-transparent pt-4">
@@ -52,7 +57,10 @@ const BottomNavBar = () => {
                 <MessageSquare size={18} />
                 <span>Post on community</span>
               </DropdownMenuItem>
-              <DropdownMenuItem className="hover:bg-white/10 cursor-pointer gap-2">
+              <DropdownMenuItem 
+                className="hover:bg-white/10 cursor-pointer gap-2"
+                onClick={handleAddRoutine}
+              >
                 <List size={18} />
                 <span>Add a routine</span>
               </DropdownMenuItem>

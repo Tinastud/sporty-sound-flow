@@ -14,6 +14,7 @@ import Nutrition from "./pages/Nutrition";
 import Schedule from "./pages/Schedule";
 import Settings from "./pages/Settings";
 import Progress from "./pages/Progress";
+import Routines from "./pages/Routines";
 
 const queryClient = new QueryClient();
 
@@ -33,6 +34,7 @@ const App = () => (
           <Route path="/schedule" element={<Schedule />} />
           <Route path="/settings" element={<Settings />} />
           <Route path="/progress" element={<Progress />} />
+          <Route path="/routines" element={<Routines />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

@@ -26,7 +26,7 @@ const BottomNavBar = () => {
         <div className="absolute left-1/2 transform -translate-x-1/2 -mt-10">
           <DropdownMenu onOpenChange={setIsOpen}>
             <DropdownMenuTrigger asChild>
-              <div className="h-14 w-14 rounded-full bg-gradient-to-r from-app-orange to-app-light-orange flex items-center justify-center cursor-pointer shadow-lg">
+              <div className="h-14 w-14 rounded-full title-gleam flex items-center justify-center cursor-pointer shadow-lg">
                 {isOpen ? <Minus size={26} className="text-white" /> : <Plus size={26} className="text-white" />}
               </div>
             </DropdownMenuTrigger>

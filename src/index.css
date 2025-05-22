@@ -118,3 +118,40 @@ body {
   padding: 0;
   text-align: left;
 }
+
+/* Orange gleam animation for the title */
+@keyframes gleaming {
+  0% {
+    background-position: -300% 0;
+  }
+  100% {
+    background-position: 300% 0;
+  }
+}
+
+.title-gleam {
+  position: relative;
+  background: linear-gradient(
+    90deg,
+    #FF6B35 0%,
+    #FF8652 25%,
+    #FFD6C2 50%,
+    #FF8652 75%,
+    #FF6B35 100%
+  );
+  background-size: 200% auto;
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  transition: all 0.3s ease;
+}
+
+.title-gleam:hover {
+  animation: gleaming 2s linear infinite;
+}
+
+.title-gleam:active {
+  animation: gleaming 1s linear infinite;
+  text-shadow: 0 0 8px rgba(255, 107, 53, 0.7);
+}
+

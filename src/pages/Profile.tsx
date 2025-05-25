@@ -1,4 +1,3 @@
-
 import React from "react";
 import { 
   Settings, Award, ChevronRight, BarChart2, Activity, Battery, Watch, Headphones
@@ -62,15 +61,17 @@ const Profile = () => {
             </div>
           </Link>
           
-          <div className="flex items-center justify-between bg-white/5 rounded-xl p-4">
-            <div className="flex items-center">
-              <div className="bg-app-orange/20 rounded-full h-10 w-10 flex items-center justify-center mr-3">
-                <Activity className="text-app-orange" size={20} />
+          <Link to="/workout" className="block">
+            <div className="flex items-center justify-between bg-white/5 rounded-xl p-4">
+              <div className="flex items-center">
+                <div className="bg-app-orange/20 rounded-full h-10 w-10 flex items-center justify-center mr-3">
+                  <Activity className="text-app-orange" size={20} />
+                </div>
+                <span className="text-white">Workout History</span>
               </div>
-              <span className="text-white">Workout History</span>
+              <ChevronRight className="text-white/40" size={20} />
             </div>
-            <ChevronRight className="text-white/40" size={20} />
-          </div>
+          </Link>
         </div>
 
         <div>

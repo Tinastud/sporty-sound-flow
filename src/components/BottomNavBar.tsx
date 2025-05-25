@@ -23,6 +23,11 @@ const BottomNavBar = () => {
     navigate("/routines");
   };
 
+  const handlePostCommunity = () => {
+    setIsOpen(false);
+    navigate("/posting");
+  };
+
   return (
     <div className="fixed bottom-0 left-0 right-0 bg-gradient-to-t from-app-background to-transparent pt-4">
       <div className="flex items-center justify-around px-4 pb-6 relative">
@@ -53,7 +58,10 @@ const BottomNavBar = () => {
                 <Calendar size={18} />
                 <span>Schedule a meeting</span>
               </DropdownMenuItem>
-              <DropdownMenuItem className="hover:bg-white/10 cursor-pointer gap-2">
+              <DropdownMenuItem 
+                className="hover:bg-white/10 cursor-pointer gap-2"
+                onClick={handlePostCommunity}
+              >
                 <MessageSquare size={18} />
                 <span>Post on community</span>
               </DropdownMenuItem>

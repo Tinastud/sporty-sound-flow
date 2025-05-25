@@ -15,6 +15,7 @@ import Schedule from "./pages/Schedule";
 import Settings from "./pages/Settings";
 import Progress from "./pages/Progress";
 import Routines from "./pages/Routines";
+import Posting from "./pages/Posting";
 
 const queryClient = new QueryClient();
 
@@ -35,6 +36,7 @@ const App = () => (
           <Route path="/settings" element={<Settings />} />
           <Route path="/progress" element={<Progress />} />
           <Route path="/routines" element={<Routines />} />
+          <Route path="/posting" element={<Posting />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
